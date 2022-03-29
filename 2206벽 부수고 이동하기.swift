@@ -15,9 +15,12 @@
 
 // 15
 
-import Foundation
+//import Foundation
 
-let data = readLine()!.components(separatedBy: " ").map( {Int($0)!})
+// 2206 벽 부수고 이동하기
+
+//let data = readLine()!.components(separatedBy: " ").map( {Int($0)!})
+let data = readLine()!.split(separator: " ").map( {Int(String($0))!})
 let n = data[0]
 let m = data[1]
 
@@ -45,19 +48,19 @@ let dy = [0, 1, 0, -1]
 
 queue = [[0,0,0]]
 visited[0][0][0] = 1
-
+var index = 0
 // 강제로 하나를 뚫고 해본다면? (모든 경우)
         
-while queue.count > 0 {
+while queue.count > index {
     
-    let q = queue.removeFirst()
+//    let q = queue.removeFirst()
+    let q = queue[index]
+    index += 1
     let r = q[0]
     let c = q[1]
     let crash = q[2]
     
     if r == n-1 && c == m-1 {
-//                print("도착", result)
-//        answer.append(visited[r][c][0])
         result = visited[r][c][crash]
         break
     }
